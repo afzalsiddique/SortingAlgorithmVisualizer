@@ -1,16 +1,22 @@
-# This is a sample Python script.
+import pygame
+import random
+pygame.init()
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+class DrawInformation:
+    BLACK=0,0,0
+    WHITE=255,255,255
+    GREEN=0,255,0
+    RED=255,0,0
+    GREY=128,128,128
+    BACKGROUND_COLOR=WHITE
+    def __init__(self,width,height,lst):
+        self.width=width
+        self.height=height
 
+        self.window = pygame.display.set_mode((width,height))
+        pygame.display.set_caption("Sorting Algorithm Visualizer")
+        # self.set_list(lst)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+DrawInformation(200,500,[])
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # def set_list(self, lst):
