@@ -1,11 +1,11 @@
 
 import pygame
 import random
-# from SortingAlgo.bubbleSort import bubble_sort
+from SortingAlgo.bubbleSort import bubble_sort
+from SortingAlgo.insertionSort import insertion_sort
 pygame.init()
-
 from DrawInfo import DrawInformation
-from drawMethods import draw_list,draw
+from DrawMethods import draw_list,draw
 
 
 
@@ -14,37 +14,6 @@ def generate_starting_list(n,min_val,max_val):
     for _ in range(n):
         val = random.randint(min_val,max_val)
         lst.append(val)
-    return lst
-
-def bubble_sort(draw_info, ascending=True):
-    lst = draw_info.lst
-
-    for i in range(len(lst) - 1):
-        for j in range(len(lst) - 1 - i):
-            num1 = lst[j]
-            num2 = lst[j + 1]
-
-            if (num1 > num2 and ascending) or (num1 < num2 and not ascending):
-                lst[j], lst[j + 1] = lst[j + 1], lst[j]
-                draw_list(draw_info, {j: draw_info.GREEN, j + 1: draw_info.RED}, True)
-                yield True
-
-    return lst
-def insertion_sort(draw_info:DrawInformation,ascending=True):
-    lst = draw_info.lst
-    for i in range(1,len(lst)):
-        current = lst[i]
-        while True:
-            ascending_sort = i>0 and lst[i-1]>current and ascending
-            descending_sort = i>0 and lst[i-1]<current and not ascending
-
-            if not ascending_sort and not descending_sort:
-                break
-            lst[i]=lst[i-1]
-            i=i-1
-            lst[i]=current
-            draw_list(draw_info,{i-1:draw_info.GREEN,i:draw_info.RED})
-            yield True
     return lst
 
 def main():
